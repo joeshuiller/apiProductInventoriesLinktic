@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: apiProductInventoriesLinktic
+  jwt:
+    secret: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+    expiration: 86400000 # 24 hours in milliseconds
+  datasource:
+      url: jdbc:mysql://localhost:5432/bdd_inventories?createDatabaseIfNotExist=true
+      username: myuser
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+      generate-ddl: true
+      open-in-view: false
+      hibernate:
+        ddl-auto: update # or validate, none
+      show-sql: true
+server:
+    port: 8092
+    forward-headers-strategy: framework
+    show-actuator: true
+    packages-to-scan: com.linktic.janes.apiProductInventorieLinktic
+logging:
+    group:
+      autoconfigure: "org.springframework.boot.autoconfigure"
+      hikari: "com.zaxxer.hikari"
+      web: "org.springframework.web"
+    level:
+      root: INFO
+      #autoconfigure: WARN
+      #hikari: INFO
+      #web: INFO
+      #org.springframework.boot.autoconfigure.condition: DEBUG
+      #com.linktic.janes.apiUsersLinktic: DEBUG
+      #com.linktic.janes.apiUsersLinktic.service: INFO
+    file:
+      name: inventories.log
+    config:
+      classpath: logback-inventories.xml
+
