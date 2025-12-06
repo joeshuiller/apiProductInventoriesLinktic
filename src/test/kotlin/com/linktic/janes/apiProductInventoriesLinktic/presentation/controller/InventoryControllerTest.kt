@@ -30,7 +30,7 @@ class InventoryControllerTest {
         7,
         7
     )
-    val token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW5lc19zYWVuekBob3RtYWlsLmNvbSIsImV4cCI6MTc2NTA1OTYyMX0.B6rjmgB-6q4jzT9jenhIJ4oPR3ZT1h3ALoThR9gQFeSwSjygYjwETbXjNQpxOR0k7oUIldQK3kUuwMu7V06U7Q"
+    val token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW5lc19zYWVuekBob3RtYWlsLmNvbSIsImV4cCI6MTc2NTA3OTAxMH0.8LT4OPKwxgCEbi1gWMHQ51WtBMlnjPOKIFsCd3iHf6qbCZyk3cYpaMil5HPJBgJM4-Fbq1tnIAqp1P3fn_VPwg"
     private val arrayUsers = listOf(inventory)
     private val authService = mockk<InventoryService>()
     private val usefulValidService = mockk<UsefulValidService>()
@@ -59,4 +59,14 @@ class InventoryControllerTest {
         val expectedResponse: ResponseEntity<InventoryResponse> = ResponseEntity.ok(inventory)
         every { auth.register(userAuth, token) } returns expectedResponse
     }
+
+    @Test
+    fun `put Save returns correct`(){
+        every { usefulValidService.valiToken(token)} returns true
+        every { authService.putSave(0,userAuth, token) } returns inventory
+        val expectedResponse: ResponseEntity<InventoryResponse> = ResponseEntity.ok(inventory)
+        every { auth.register(userAuth, token) } returns expectedResponse
+    }
+
+
 }

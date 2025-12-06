@@ -35,7 +35,7 @@ class InventoryServiceTest {
         apiRestService
     )
 
-    val token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW5lc19zYWVuekBob3RtYWlsLmNvbSIsImV4cCI6MTc2NDk1MTA0M30.-3wjztXt2of_9a1uEV-aeJZSDmuyJSgNbnXETBN_tNIgYZCbCsowChUkc3MLYEJQ_rTy066Qd8_8n-Vo5UU85A"
+    val token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW5lc19zYWVuekBob3RtYWlsLmNvbSIsImV4cCI6MTc2NTA3OTAxMH0.8LT4OPKwxgCEbi1gWMHQ51WtBMlnjPOKIFsCd3iHf6qbCZyk3cYpaMil5HPJBgJM4-Fbq1tnIAqp1P3fn_VPwg"
 
     @Test
     fun `findAll returns correct List UsersResponse`() {
@@ -50,6 +50,11 @@ class InventoryServiceTest {
     @Test
     fun `signup returns correct UsersResponse`() {
         every { userService.save(userAuth, token)} returns inventory
+    }
+
+    @Test
+    fun `put Save returns correct UsersResponse`() {
+        every { userService.putSave(0,userAuth, token)} returns inventory
     }
 
 }
