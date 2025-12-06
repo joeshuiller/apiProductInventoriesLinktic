@@ -2,12 +2,11 @@ package com.linktic.janes.apiProductInventoriesLinktic
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
 
-@SpringBootTest
+@AutoConfigureMockMvc
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ApiProductInventoriesLinkticApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
 
 }

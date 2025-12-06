@@ -47,8 +47,7 @@ class UsefulValidService(
 
     @Throws(JwtExpired::class)
     fun valiToken(token: String): Boolean{
-        val data = jwtService.isTokenValid(token)
-        if (!data) throw JwtExpired("Token expiró")
-        return jwtService.isTokenValid(token)
+        val data = jwtService.isTokenValid(token) ?: throw JwtExpired("Token expiró")
+        return data
     }
 }

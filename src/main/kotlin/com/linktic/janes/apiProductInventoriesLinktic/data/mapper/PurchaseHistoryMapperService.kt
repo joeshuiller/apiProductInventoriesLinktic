@@ -6,11 +6,23 @@ import com.linktic.janes.apiProductInventoriesLinktic.domain.dto.response.Purcha
 
 class PurchaseHistoryMapperService: Mapper<PurchaseHistoryRequest, PurchaseHistoryEntity, PurchaseHistoryResponse> {
     override fun fromEntity(entity: PurchaseHistoryEntity): PurchaseHistoryResponse {
-        TODO("Not yet implemented")
+        return  PurchaseHistoryResponse(
+            entity.id,
+            "Janes",
+            "0.0".toBigDecimal(),
+            "",
+            entity.amount,
+            entity.amount
+        )
     }
 
     override fun toEntity(domain: PurchaseHistoryRequest): PurchaseHistoryEntity {
-        TODO("Not yet implemented")
+        return PurchaseHistoryEntity(
+            null,
+            domain.amount,
+            domain.idInventory,
+            domain.idUsers
+        )
     }
 
 }

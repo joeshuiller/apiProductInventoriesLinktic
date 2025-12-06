@@ -8,7 +8,15 @@ import org.springframework.stereotype.Service
 @Service
 class InventoryMapperService: Mapper<InventoryRequest, InventoryEntity, InventoryResponse> {
     override fun fromEntity(entity: InventoryEntity): InventoryResponse {
-        TODO("Not yet implemented")
+        return InventoryResponse(
+            entity.id,
+            entity.amount ?: 0,
+            "",
+            "0.0".toBigDecimal(),
+            "",
+            entity.createAt,
+            entity.updateAt
+        )
     }
 
     override fun toEntity(domain: InventoryRequest): InventoryEntity {

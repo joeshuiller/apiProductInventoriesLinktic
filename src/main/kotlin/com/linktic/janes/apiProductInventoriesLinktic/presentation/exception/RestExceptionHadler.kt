@@ -1,6 +1,7 @@
 package com.linktic.janes.apiProductInventoriesLinktic.presentation.exception
 
 import com.linktic.janes.apiProductInventoriesLinktic.domain.exception.AccessDenied
+import com.linktic.janes.apiProductInventoriesLinktic.domain.exception.InventoryNotExit
 import com.linktic.janes.apiProductInventoriesLinktic.domain.exception.JwtExpired
 import com.linktic.janes.apiProductInventoriesLinktic.domain.exception.ProductNotExit
 import com.linktic.janes.apiProductsLinktic.domain.exception.InvalidJwtToken
@@ -64,4 +65,15 @@ class RestExceptionHadler {
         logger.error( "Error producto no existe : {}" , errorResponse)
         return ResponseEntity(errorResponse, HttpStatus.UNAUTHORIZED)
     }
+
+    // Generic handler for all other RuntimeExceptions
+    @ExceptionHandler(InventoryNotExit::class)
+    fun handleInventoryNotExit(ex: InventoryNotExit): ResponseEntity<Error> {
+        // Log the exception details
+        val errorResponse = Error(HttpStatus.UNAUTHORIZED.value(), "Error inventario no existe",ex.message.toString())
+        logger.error( "Error inventario no existe : {}" , errorResponse)
+        return ResponseEntity(errorResponse, HttpStatus.UNAUTHORIZED)
+    }
+
+
 }
