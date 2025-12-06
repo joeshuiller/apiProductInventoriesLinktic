@@ -1,4 +1,4 @@
-package com.linktic.janes.apiProductsLinktic.configuration
+package com.linktic.janes.apiProductInventoriesLinktic.configuration
 
 import io.jsonwebtoken.Jwts
 import org.slf4j.LoggerFactory
