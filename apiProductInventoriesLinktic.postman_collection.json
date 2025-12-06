@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "8d8fefef-45ab-4880-8202-5e2367b8d5d2",
+		"name": "apiProductInventoriesLinktic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19675535"
+	},
+	"item": [
+		{
+			"name": "getInventory",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW5lc19zYWVuekBob3RtYWlsLmNvbSIsImV4cCI6MTc2NDk1MTA0M30.-3wjztXt2of_9a1uEV-aeJZSDmuyJSgNbnXETBN_tNIgYZCbCsowChUkc3MLYEJQ_rTy066Qd8_8n-Vo5UU85A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8091/api/v1/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getInventoryAll",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW5lc19zYWVuekBob3RtYWlsLmNvbSIsImV4cCI6MTc2NDk1MTA0M30.-3wjztXt2of_9a1uEV-aeJZSDmuyJSgNbnXETBN_tNIgYZCbCsowChUkc3MLYEJQ_rTy066Qd8_8n-Vo5UU85A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8091/api/v1/inventory/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"api",
+						"v1",
+						"inventory",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW5lc19zYWVuekBob3RtYWlsLmNvbSIsImV4cCI6MTc2NDk1MTA0M30.-3wjztXt2of_9a1uEV-aeJZSDmuyJSgNbnXETBN_tNIgYZCbCsowChUkc3MLYEJQ_rTy066Qd8_8n-Vo5UU85A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8092/api/v1/inventory/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8092",
+					"path": [
+						"api",
+						"v1",
+						"inventory",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
