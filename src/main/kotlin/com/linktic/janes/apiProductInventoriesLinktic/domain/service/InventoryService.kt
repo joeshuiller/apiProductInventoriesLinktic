@@ -46,4 +46,11 @@ class InventoryService(
         val result =  inventoryRepository.save(products)
         return utilService.mapperResponse(result, idProduct)
     }
+
+    fun putSave(id: Long, products: InventoryRequest, token:String): InventoryResponse?{
+        val idProduct = productApi.fetchDataProduct(products.idProduct.toString(), token)
+        if (idProduct == null) throw ProductNotExit("Producto no encontrado")
+        val result =  inventoryRepository.updateById(id, products)
+        return utilService.mapperResponse(result, idProduct)
+    }
 }

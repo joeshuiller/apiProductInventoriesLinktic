@@ -53,12 +53,14 @@ class InventoryController(
         return ResponseEntity.ok(users)
     }
 
-    @PostMapping("/register/prueba")
-    fun registerPrueba(
+    @PostMapping("/{id}")
+    fun putSave(
+        @PathVariable id: Long,
         @RequestBody @Valid request: InventoryRequest,
-        @RequestHeader("Authorization") authorizationHeader: String): ResponseEntity<InventoryRequest> {
+        @RequestHeader("Authorization") authorizationHeader: String): ResponseEntity<InventoryResponse> {
         token = usefulValidService.valiToken(authorizationHeader)
         val usefulValid = usefulValidService.mapperInventory(request, authorizationHeader)
-        return ResponseEntity.ok(usefulValid)
+        val users = usefulValid?.let { inventoryService.putSave(id,it, authorizationHeader) }
+        return ResponseEntity.ok(users)
     }
 }
